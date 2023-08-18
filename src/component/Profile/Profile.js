@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Http } from "../Http"
+import { useNavigate } from "react-router-dom"
 
  
  
@@ -11,6 +12,7 @@ import { Http } from "../Http"
 
     const [currentUser, setCurrentUser] = useState()
     const [show, setShow] = useState(false)
+    const naviagte = useNavigate()
 
 
     useEffect(()=>{
@@ -30,18 +32,27 @@ import { Http } from "../Http"
         })
     },[])
 
+
+
+    const handleBack = ()=>{
+        naviagte("/post")
+    }
+
     
     return(
         <>
         <div>
             {  currentUser ? (
-                <>
-                <div style={{textAlign:"center"}}>{currentUser.username}</div>
-                <div style={{textAlign:"center"}}>{currentUser.email}</div>
-                </>
+                <div style={{textAlign:'center', margin:'200px auto', fontSize:'5vw'}}>
+                    
+                <div>{currentUser.username}</div>
+                <div >{currentUser.email}</div>
+
+                <button   style={{padding:"10px 20px", backgroundColor:'blue', color:'white', border:'0.2px solid blue'}} onClick={handleBack}>Back to post</button>
+                </div>
             ):(
                 <>
-                Please wait , we are loading data
+                <div style={{textAlign:"center", margin:'100px auto'}}>Please wait , we are loading data</div>
                 </>
             )
                 

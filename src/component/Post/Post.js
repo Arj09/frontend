@@ -26,6 +26,8 @@ export const Post = ()=>{
     const [postID, setpostId] = useState()
     const [hidecommentBox, setHidecommentBox] = useState(false)
     const [commentEditID, setcommentEditID] = useState()
+    const [blogID, setBlogID] = useState(0)
+    const [commentID, setCommentID] = useState(0)
     
 
 
@@ -45,8 +47,8 @@ export const Post = ()=>{
     const handleComment =(index, id)=>{
         comment ? setComment(false) : setComment(true);
         setpostId(id)
-       
         setid(index)
+        setCommentID(commentID=>commentID+1)
 
     }
     const handlepopupHide = (index)=>{
@@ -64,6 +66,7 @@ export const Post = ()=>{
         const name = e.target.name;
         const value = e.target.value;
         setCommentText(commentText=>({...commentText, [name]:value}))
+        setCommentID(commentID=>commentID+1)
     }
 
 
@@ -82,6 +85,7 @@ export const Post = ()=>{
         }).then((res)=>{
             setHidecommentBox(false)
             console.log(res.data)
+            setCommentID(commentID=>commentID+1)
         }).catch((err)=>{
             console.log(err)
         })
@@ -107,6 +111,7 @@ export const Post = ()=>{
             }
         }).then((res)=>{
             console.log(res.data)
+            setCommentID(commentID=>commentID+1)
         }).catch((err)=>{
             console.log(err)
         })
@@ -118,6 +123,7 @@ export const Post = ()=>{
         const name = e.target.name;
         const value = e.target.value;
         setData1(data1=>({...data1, [name]:value}))
+        setBlogID(blogID=>blogID+1)
 
     }
     const handlePostdatabtn = (e)=>{
@@ -136,6 +142,7 @@ export const Post = ()=>{
             },
         }).then((res)=>{
             console.log(res.data)
+            setBlogID(blogID=>blogID+1)
         }).catch((err)=>{
             console.log(err)
         })
@@ -144,6 +151,7 @@ export const Post = ()=>{
 
     const handlePostedit = (id)=>{
         localStorage.setItem("Edit_id", id)
+        setBlogID(blogID=>blogID+1)
         naviagte("/updatepost")
 
     }
@@ -167,6 +175,8 @@ export const Post = ()=>{
             }
         }).then((res)=>{
             console.log(res.data)
+            setCommentID(commentID=>commentID+1)
+            
         }).catch((err)=>{
             console.log(err)
         })
@@ -181,7 +191,9 @@ export const Post = ()=>{
             }
 
         }).then((res)=>{
+            setBlogID(blogID=>blogID+1)
             console.log(res.data.response.message)
+            
         }).catch((err)=>{
             console.log(err)
         })
@@ -201,7 +213,7 @@ export const Post = ()=>{
         }).catch((err)=>{
             console.log(err)
         })
-    },[handleDeleteComment,handleCommentbtn])
+    },[commentID])
 
     useEffect(()=>{
         Http.get("/api/user/post",{
@@ -213,12 +225,12 @@ export const Post = ()=>{
         }).then((res)=>{
             setData(res.data)
             console.log(res.data)
-            console.log(data)
+            
 
         }).catch((err)=>{
             console.log(err)
         })
-    },[handleDeletePost,handlePostdatabtn])
+    },[blogID, 2000])
 
 
     useEffect(()=>{
@@ -337,7 +349,8 @@ export const Post = ()=>{
                         
                                 <li className={comment && index == id  ? "commenttextbox": "commenttextbox1"}>
                                 {
-                                    commentStore.map((data, index)=>{
+                                    commentStore && commentStore
+                                    .map((data, index)=>{
                                 
                                         return(
                                             <ul className={ data.blog_id == postID  ? "commenttext" : "commenttext1"} key={index}>
