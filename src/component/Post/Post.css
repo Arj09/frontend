@@ -1,0 +1,262 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+.main-title{
+    padding-top: 100px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: 5vmin;
+}
+
+.createpost{
+    width: 50vw;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 0.2px solid blue;
+    border-radius: 5px;
+    padding: 20px;
+    
+}
+.createpost input{
+    width: 95%;
+    padding: 1vw 2vw;
+    margin: 10px auto;
+    
+}
+.createpost textarea{
+    width: 95%;
+    height: 100px;
+    padding: 1vw 2vw;
+    margin: 10px auto;
+    
+}
+.createpost button{
+    width: 95%;
+    padding: 0.9vw 2vw;
+    background-color: blue;
+    border: 0.2px solid blue;
+    color: white;
+    font-size: medium;
+    cursor: pointer;
+    margin: 20px auto;
+    
+    
+
+}
+
+.post{
+    width: 50vw;
+    position: relative;
+    
+    margin: 50px auto;
+    background-color: aqua;
+    list-style: none;
+    .bothIconandtitle{
+        align-items: center;
+        padding: 2px 20px ;
+        flex-direction: row;
+        display: flex;
+        
+      
+        
+        
+    }
+    .deleteIcon{
+        cursor: pointer;
+       
+       
+       
+    }
+   
+    .title{
+       
+
+        
+    }
+    .deleteIcon1{
+        display: none;
+    }
+    .delete1{
+        display: none;
+    }
+    .delete{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: 10px -40px;
+        background-color: white;
+        color: blue;
+       
+        border: 0.2px solid white;
+        
+        
+        .deleteoption{
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+        .deleteoption:hover{
+            background-color: blue;
+            color: white;
+
+        }
+
+    }
+    .hidebutton{
+        display: none;
+    }
+    .description{
+       
+        padding: 5px 20px;
+
+    }
+    .comment{
+        padding: 15px 20px;
+        color: blue;
+        cursor: pointer;
+    }
+    .commentbox1{
+        display: none;
+    }
+    .commentbox{
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 10px;
+        margin: 5px auto;
+    }
+    .commentbox input{
+        width: 65%;
+        padding: 0.5vw 1vw;
+        margin-bottom: 20px;
+    }
+    .commentbox button{
+        width: 15%;
+        padding: 0.4vw 1vw;
+        background-color: blue;
+        border: 0.2px solid blue;
+        color: white;
+        font-size: medium;
+        cursor: pointer;
+        margin-bottom: 20px;
+        
+    }
+    .commenttextbox1{
+        display: none;
+    }
+    .commenttextbox{
+        margin: 10px 50px;
+        padding-bottom: 20px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+       
+        
+        
+
+    }
+    .commenttextbox .commenttext{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 5px 20px;
+        list-style: none;
+        align-items: center;
+        cursor: pointer;
+        margin: 10px auto;
+        background-color: black;
+        color: white;
+        text-align: center;
+       
+        
+        
+    }
+    .commenttextbox .commenttext1{
+        display: none;
+    }
+    .commentaction1{
+        display: none;
+    }
+    .commentaction{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: -30px -70px;
+        background-color: white;
+        color: blue;
+       
+        border: 0.2px solid white;
+        .action{
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+        .action:hover{
+            background-color: blue;
+            color: white;
+        }
+    }
+    
+
+    
+}
+
+
+
+@media (max-width:1080px) {
+    .createpost{
+        width: 70vw;
+    }
+
+    
+    .post{
+        width: 60vw;
+        
+        
+        .title{
+        padding: 20px;
+    }
+    .description{
+       
+        padding: 20px;
+
+    }
+    
+}
+
+    
+}
+
+
+
+@media (max-width:600px) {
+    .createpost{
+        width: 80vw;
+    }
+    
+    .post{
+        width: 80vw;
+       
+      
+        list-style: none;
+        .title{
+            padding: 20px;
+        }
+        .description{
+           
+            padding: 20px;
+    
+        }
+        
+    }
+    
+        
+    }
